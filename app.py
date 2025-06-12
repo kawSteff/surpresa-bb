@@ -5,11 +5,15 @@ st.set_page_config(page_title="Surpresa BB", layout="centered")
 st.markdown(
     """
     <style>
-    .stApp { background-color: #e6f7ff; }
-    .main { color: #001f3f; }
+        body {
+            background-color: #e6f0ff;  /* azul bem clarinho */
+        }
+        * {
+            color: #222222 !important;  /* texto escuro visível */
+        }
     </style>
     """,
-    unsafe_allow_html=True,
+    unsafe_allow_html=True
 )
 
 st.header("💍 Surpresa especial")
