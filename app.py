@@ -2,6 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="Surpresa BB", layout="centered")
 
+# Força fundo azul clarinho e texto escuro
 st.markdown(
     """
     <style>
@@ -19,12 +20,20 @@ st.markdown(
 st.header("💍 Surpresa especial")
 st.write("Você sabe que dia é hoje?\n\nIsso mesmo, o seu primeiro Dia dos Namorados NOIVAAAA 🤍")
 
+# Entrada do nome
 nome = st.text_input("Qual o seu nome? (Dica: começa com L...)")
 
 if nome.strip().lower() == "larissa":
-    confirmar = st.radio("Vamos descobrir o que a sua noiva aprontou pra você?", ("Não", "Sim"))
+    # Radio sem opção selecionada no início
+    confirmar = st.radio(
+        "Vamos descobrir o que a sua noiva aprontou pra você?", 
+        ("Não", "Sim"),
+        index=None
+    )
+    
     if confirmar == "Sim":
         st.write("🥹 Espero que esteja pronta então!\n")
+        
         mensagem = """
 Desde o dia em que voltamos a nos falar, eu senti dentro de mim que você era diferente.
 Eu sempre sonhei em ter um amor como o nosso mas nunca imaginei que um dia iria se tornar real.
@@ -47,7 +56,9 @@ Obrigada por me fazer querer viver mais um dia, todos os dias.
 *Com amor, Kaw 🤍💍*
 """
         st.markdown(mensagem)
+    
     elif confirmar == "Não":
         st.write("🙊 Ahhh... então tá bom... até a próxima!")
-elif nome != "":
-    st.warning("❌ Ops! Só a Larissa pode continuar... tente de novo!")
+else:
+    if nome:
+        st.error("❌ Ops! Só a Larissa pode continuar... tente de novo!\n")
